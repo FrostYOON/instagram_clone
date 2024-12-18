@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  font-family: 'Open Sans', sans-serif;
+  vertical-align: baseline;
+}
+
+body {
+  background-color: #faf5f0;
+  line-height: 1;
+  color: #5c4033;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+.navbar {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  height: 100vh;
+  padding: 10px;
+  border-right: 1px solid #7e7e7e;
+  background-color: #e8e1db;
+}
+
+.navbar-logo {
+  display: block;
+  margin-bottom: 20px;
+  padding: 30px 10px;
+}
+
+.navbar-logo img {
+  height: 30px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #3e2723;
+  transition: background-color transform 0.1s ease-out;
+}
+
+.nav-link img {
+  width: 30px;
+  transition: transform 0.1s ease-out;
+}
+
+.nav-link:hover {
+  cursor: pointer;
+  background-color: #d7d7d7;
+  transform: scale(1.1);
+  color: #000;
+}
+
+.nav-link img:hover {
+  transform: scale(1.1);
+}
+
+.container {
+  padding-left: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-inner {
+  width: 1000px;
+}
+
+.profile-section {
+  display: flex;
+  padding: 40px 0;
+}
+
+.profile-image {
+  display: flex;
+  align-items: center;
+  margin: 0 70px;
+}
+
+.profile-image img {
+  width: 150px;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  background-color: #fff;
+}
+
+.profile-options {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#profile-name {
+  font-size: 20px;
+  line-height: 20px;
+  margin-right: 20px;
+}
+
+.profile-button {
+  margin-right: 7px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 7px;
+  background-color: #c2b280;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.profile-setting-button {
+  border: none;
+  border-radius: 7px;
+  background-color: transparent;
+}
+
+.profile-setting-button img {
+  height: 30px;
+}
+
+.profile-quantity-lists {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.profile-contents {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.profile-content-name {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.profile-content-description {
+  margin-bottom: 5px;
+}
+
+.profile-content-website {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.profile-content-website img {
+  height: 15px;
+  margin-right: 2px;
+}
+
+.profile-content-website a {
+  font-weight: 500;
+  text-decoration: none;
+  color: #5c4033;
+}
+
+.profile-content-website a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.posts-section {
+  display: block;
+}
+
+.posts-nav {
+  width: 100%;
+  border-top: 1px solid #7e7e7e;
+}
+
+.posts-nav-lists {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.posts-nav-list > button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 0;
+  border: none;
+  background-color: transparent;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.posts-nav-list-selected > button {
+  border-top: 1px solid #000;
+}
+
+.posts-nav-list > button:hover {
+  cursor: pointer;
+}
+
+.posts-nav-list > button > img {
+  height: 12px;
+}
+
+.posts-content.no-posts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+.posts-content {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.posts-content-item-no-posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 70px 0;
+}
+
+.posts-content-item-no-posts-image {
+  border: 3px solid #000;
+  background-color: #ccc;
+  border-radius: 50%;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.posts-content-item-no-posts-image img {
+  width: 30px;
+}
+
+.posts-content-item-no-posts h3 {
+  font-size: 28px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 70px;
+}
+
+.footer-lists {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-list {
+  font-size: 12px;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.footer-last {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
