@@ -35,7 +35,7 @@ const profileEditSaveButton = document.querySelector('#profile-edit-save');
 const CloseButton = document.querySelector('.modal-close-button');
 
 // 페이지 로드 시 프로필 정보 업데이트
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   profileUI();
   defaultEvent();
 })
