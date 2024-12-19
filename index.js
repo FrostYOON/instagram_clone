@@ -10,6 +10,22 @@ const defaultProfile = {
   follows: 99,
 }
 
+// 포스트 요소 가져오기
+const addPostModal = document.querySelector('.add-post-modal');
+const addPostModalView = document.querySelector('.add-post-modal-view');
+const addPostModalUpdate = document.querySelector('.add-post-modal-update');
+const addPostModalFile = document.querySelector('#add-post-file');
+const addPostModalContent = document.querySelector('.add-post-modal-content');
+const addPostModalImage = document.querySelector('.add-post-modal-image');
+const addPostModalTextarea = document.querySelector('.add-post-modal-textarea');
+
+// 모달 버튼 요소 가져오기
+const addPostModalButton = document.querySelector('#add-post');
+const addPostModalShareButton = document.querySelector('#add-post-share');
+
+// 포스트 요소 가져오기
+const postsGallary = document.querySelector('.posts-gallary');
+
 // 프로필 요소 가져오기
 const profileImage = document.querySelector('#profile-image');
 const profileId = document.querySelector('#profile-id');
@@ -32,6 +48,8 @@ const profileEditWebsite = document.querySelector('#profile-edit-website');
 const profileEditButton = document.querySelector('#profile-edit');
 const profileEditModal = document.querySelector('.profile-edit-modal');
 const profileEditSaveButton = document.querySelector('#profile-edit-save');
+
+// 모달 닫기 버튼 요소 가져오기
 const CloseButton = document.querySelector('.modal-close-button');
 
 // 페이지 로드 시 프로필 정보 업데이트
@@ -47,10 +65,22 @@ function defaultEvent() {
   });
 
   profileEditSaveButton.addEventListener('click', profileEditSave);
+
+  addPostModalButton.addEventListener('click', () => {
+    addPostModal.showModal();
+  });
   
-  CloseButton.addEventListener('click', () => {
-    profileEditModal.close();
-    profileUI();
+  CloseButton.addEventListener('click', (e) => {
+    if (e.target === profileEditModal) {
+      profileEditModal.close();
+      profileUI();
+    }else if(e.target === addPostModal) {
+      addPostModal.close();
+    }
+  });
+
+  addPostModal.addEventListener('click', (event) => {
+    dialogOut(event);
   });
 
   profileEditModal.addEventListener('change', (event) => {
@@ -123,13 +153,9 @@ function updateImage(e) {
 
 // 프로필 수정 모달 외부 클릭 시 모달 닫기
 function dialogOut(event) {
-  const rect = profileEditModal.getBoundingClientRect();
-  if (
-    event.clientX < rect.left - 150 ||
-    event.clientX > rect.right + 150 ||
-    event.clientY < rect.top - 150 ||
-    event.clientY > rect.bottom + 150
-  ) {
+  if (event.target === addPostModal) {
+    addPostModal.close();
+  }else if(event.target === profileEditModal) {
     profileEditModal.close();
   }
 }

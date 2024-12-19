@@ -271,15 +271,15 @@ ol, ul {
 }
 
 /* Post 모달 공통 */
-.add-post-modal .add-post-modal-content {
+.add-post-modal-view .add-post-modal-content {
   display: none;
 }
 
-.add-post-modal .add-post-modal-header > button {
+.add-post-modal-view .add-post-modal-header > button {
   display: none;
 }
 
-.add-post-modal-share .add-post-modal-file {
+.add-post-modal-update .add-post-modal-file {
   display: none;
 }
 

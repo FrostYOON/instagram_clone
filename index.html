@@ -51,11 +51,11 @@
             <img src="./assets/add_icon.svg" alt="Add_icon" />만들기
           </a>
 
-          <dialog class="add-post-modal modal">
+          <dialog class="add-post-modal modal add-post-modal-view">
             <form action="" method="dialog">
               <header class="add-post-modal-header">
                 새 게시물 만들기
-                <button>공유하기</button>
+                <button id="add-post-share">공유하기</button>
               </header>
               <div class="add-post-modal-file">
                 <img src="./assets/media_icon.svg" alt="Media_icon" />
@@ -262,14 +262,7 @@
                 </li>
               </ul>
             </nav>
-            <div class="posts-content no-posts">
-              <div class="posts-content-item-no-posts">
-                <div class="posts-content-item-no-posts-image">
-                  <img src="./assets/camera_icon_white.svg" alt="Camera_icon" />
-                </div>
-                <h3>게시물 없음</h3>
-              </div>
-            </div>
+            <div class="posts__gallary"></div>
           </section>
         </main>
         <footer class="footer">
