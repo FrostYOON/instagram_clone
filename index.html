@@ -80,7 +80,6 @@
               </button>
             </form>
           </dialog>
-
         </li>
         <li class="nav-list">
           <a class="nav-link">
@@ -95,11 +94,15 @@
         <main>
           <section class="profile-section">
             <div class="profile-image">
-              <img src="./assets/default_profile.svg" alt="profile-image" id="profile-image" />
+              <img
+                src="./assets/default_profile.svg"
+                alt="profile-image"
+                id="profile-image"
+              />
             </div>
             <div class="profile-info">
               <div class="profile-options">
-                <h2 id="profile-id">임시 ID!</h2>
+                <h2 id="profile-id"></h2>
                 <button class="profile-button" id="profile-edit">
                   프로필 편집
                 </button>
@@ -120,7 +123,11 @@
                         for="profile-edit-upload-image"
                         class="profile-image-label"
                       >
-                        <img src="./assets/default_profile.svg" alt="profile-image" id="profile-edit-image" />
+                        <img
+                          src="./assets/default_profile.svg"
+                          alt="profile-image"
+                          id="profile-edit-image"
+                        />
                         <div class="profile-edit-image-hover">
                           <img
                             src="./assets/camera_icon_white.svg"
@@ -188,24 +195,20 @@
                 <li class="profile-quantity-list">
                   <span class="profile-quantity-title">게시물</span>
                   <span class="profile-quantity-number" id="profile-posts"
-                    ><strong></strong></span
-                  >
+                    ><strong></strong
+                  ></span>
                 </li>
                 <li class="profile-quantity-list">
                   <span class="profile-quantity-title">팔로워</span>
-                  <span
-                    class="profile-quantity-number"
-                    id="profile-followers"
-                    ><strong></strong></span
-                  >
+                  <span class="profile-quantity-number" id="profile-followers"
+                    ><strong></strong
+                  ></span>
                 </li>
                 <li class="profile-quantity-list">
                   <span class="profile-quantity-title">팔로잉</span>
-                  <span
-                    class="profile-quantity-number"
-                    id="profile-follows"
-                    ><strong></strong></span
-                  >
+                  <span class="profile-quantity-number" id="profile-follows"
+                    ><strong></strong
+                  ></span>
                 </li>
               </ul>
 
@@ -213,11 +216,11 @@
                 <span
                   class="profile-content-name"
                   id="profile-content-name"
-                >임시 이름!</span>
+                ></span>
                 <p
                   class="profile-content-description"
                   id="profile-content-description"
-                >임시 설명!</p>
+                ></p>
                 <span
                   class="profile-content-website"
                   id="profile-content-website"
@@ -227,7 +230,7 @@
                     href=""
                     id="profile-content-website-link"
                     target="_blank"
-                  >임시 웹사이트</a>
+                  ></a>
                 </span>
               </div>
             </div>
@@ -262,7 +265,7 @@
             <div class="posts-content no-posts">
               <div class="posts-content-item-no-posts">
                 <div class="posts-content-item-no-posts-image">
-                  <img src="./assets/camera_icon_white.svg" alt="Camera_icon">
+                  <img src="./assets/camera_icon_white.svg" alt="Camera_icon" />
                 </div>
                 <h3>게시물 없음</h3>
               </div>
@@ -322,5 +325,5 @@
       </div>
     </div>
   </body>
-  <script type="module" src="index.js"></script>
+  <script src="index.js"></script>
 </html>
