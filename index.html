@@ -51,7 +51,7 @@
             <img src="./assets/add_icon.svg" alt="Add_icon" />만들기
           </a>
 
-          <dialog class="add-post-modal">
+          <dialog class="add-post-modal modal">
             <form action="" method="dialog">
               <header class="add-post-modal-header">
                 새 게시물 만들기
@@ -75,7 +75,7 @@
                   placeholder="메시지를 입력하세요"
                 ></textarea>
               </div>
-              <button class="add-post-modal-close-button">
+              <button class="modal-close-button">
                 <img src="./assets/close_icon.svg" alt="Close_icon" />
               </button>
             </form>
@@ -99,25 +99,25 @@
             </div>
             <div class="profile-info">
               <div class="profile-options">
-                <h2 id="profile-name">임시 이름!</h2>
+                <h2 id="profile-id">임시 ID!</h2>
                 <button class="profile-button" id="profile-edit">
                   프로필 편집
                 </button>
 
-                <dialog class="profile-edit-modal">
+                <dialog class="profile-edit-modal modal">
                   <form action="" method="dialog">
                     <header class="profile-edit-modal-header">
-                      <h2>프로필 편집</h2>
+                      프로필 편집
                       <button
                         class="profile-edit-modal-save-button"
-                        id="profile-save"
+                        id="profile-edit-save"
                       >
                         저장
                       </button>
                     </header>
                     <div class="profile-edit-modal-content">
                       <label
-                        for="profile-edit-image"
+                        for="profile-edit-upload-image"
                         class="profile-image-label"
                       >
                         <img src="./assets/default_profile.svg" alt="profile-image" id="profile-edit-image" />
@@ -130,8 +130,8 @@
                       </label>
                       <input
                         type="file"
-                        id="profile-edit-image"
-                        name="profile-edit-image"
+                        id="profile-edit-upload-image"
+                        name="profile-edit-upload-image"
                         accept="image/*"
                       />
                       <div class="profile-edit-modal-input">
@@ -172,7 +172,7 @@
                         ></textarea>
                       </div>
                     </div>
-                    <button class="profile-edit-modal-close-button">
+                    <button class="modal-close-button">
                       <img src="./assets/close_icon.svg" alt="Close_icon" />
                     </button>
                   </form>
@@ -187,24 +187,24 @@
               <ul class="profile-quantity-lists">
                 <li class="profile-quantity-list">
                   <span class="profile-quantity-title">게시물</span>
-                  <span class="profile-quantity-number" id="profile-post-number"
-                    ><strong>100</strong></span
+                  <span class="profile-quantity-number" id="profile-posts"
+                    ><strong></strong></span
                   >
                 </li>
                 <li class="profile-quantity-list">
                   <span class="profile-quantity-title">팔로워</span>
                   <span
                     class="profile-quantity-number"
-                    id="profile-follower-number"
-                    ><strong>100</strong></span
+                    id="profile-followers"
+                    ><strong></strong></span
                   >
                 </li>
                 <li class="profile-quantity-list">
                   <span class="profile-quantity-title">팔로잉</span>
                   <span
                     class="profile-quantity-number"
-                    id="profile-following-number"
-                    ><strong>100</strong></span
+                    id="profile-follows"
+                    ><strong></strong></span
                   >
                 </li>
               </ul>
