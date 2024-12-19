@@ -47,7 +47,7 @@
           </a>
         </li>
         <li class="nav-list">
-          <a class="nav-link">
+          <a class="nav-link" id="add-post">
             <img src="./assets/add_icon.svg" alt="Add_icon" />만들기
           </a>
 
@@ -83,7 +83,7 @@
 
         </li>
         <li class="nav-list">
-          <a class="nav-link" href="">
+          <a class="nav-link">
             <img src="./assets/contact_icon.svg" alt="Contact_icon" />프로필
           </a>
         </li>
@@ -95,7 +95,7 @@
         <main>
           <section class="profile-section">
             <div class="profile-image">
-              <img alt="profile-image" id="profile-image" />
+              <img src="./assets/default_profile.svg" alt="profile-image" id="profile-image" />
             </div>
             <div class="profile-info">
               <div class="profile-options">
@@ -120,7 +120,7 @@
                         for="profile-edit-image"
                         class="profile-image-label"
                       >
-                        <img alt="profile-image" id="profile-edit-image" />
+                        <img src="./assets/default_profile.svg" alt="profile-image" id="profile-edit-image" />
                         <div class="profile-edit-image-hover">
                           <img
                             src="./assets/camera_icon_white.svg"
@@ -134,7 +134,7 @@
                         name="profile-edit-image"
                         accept="image/*"
                       />
-                      <div class="profile-edit-modal-content">
+                      <div class="profile-edit-modal-input">
                         <label for="profile-edit-id">인스타 ID</label>
                         <input
                           type="text"
@@ -142,6 +142,8 @@
                           name="profile-edit-id"
                           placeholder="인스타 ID"
                         />
+                      </div>
+                      <div class="profile-edit-modal-input">
                         <label for="profile-edit-name">이름</label>
                         <input
                           type="text"
@@ -149,6 +151,8 @@
                           name="profile-edit-name"
                           placeholder="이름"
                         />
+                      </div>
+                      <div class="profile-edit-modal-input">
                         <label for="profile-edit-website">웹사이트</label>
                         <input
                           type="text"
@@ -156,6 +160,8 @@
                           name="profile-edit-website"
                           placeholder="웹사이트"
                         />
+                      </div>
+                      <div class="profile-edit-modal-input">
                         <label for="profile-edit-description">설명</label>
                         <textarea
                           id="profile-edit-description"

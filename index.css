@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
+/* 기본 설정 */
 * {
   margin: 0;
   padding: 0;
@@ -20,6 +21,7 @@ ol, ul {
   list-style: none;
 }
 
+/* 네비게이션 바 */
 .navbar {
   position: fixed;
   display: flex;
@@ -27,10 +29,11 @@ ol, ul {
   width: 220px;
   height: 100vh;
   padding: 10px;
-  border-right: 1px solid #7e7e7e;
+  border-right: 1px solid #d7d7d7;
   background-color: #e8e1db;
 }
 
+/* 네비게이션 로고 */
 .navbar-logo {
   display: block;
   margin-bottom: 20px;
@@ -41,6 +44,7 @@ ol, ul {
   height: 30px;
 }
 
+/* 네비게이션 링크 */
 .nav-link {
   display: flex;
   align-items: center;
@@ -68,6 +72,143 @@ ol, ul {
   transform: scale(1.1);
 }
 
+/* 모달 닫기 버튼 */
+.add-post-modal-close-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  z-index: 1000;
+}
+
+.add-post-modal-close-button:hover {
+  cursor: pointer;
+  color: #5c4033;
+}
+
+.add-post-modal-close-button img {
+  width: 40px;
+  background-color: #000;
+}
+
+/* Post 모달 */
+.add-post-modal {
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.add-post-modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.add-post-modal > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+/* Post 모달 헤더 */
+.add-post-modal-header {
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  padding: 10px 0;
+  border-bottom: 1px solid #7e7e7e;
+  position: relative;
+}
+
+.add-post-modal-header > button {
+  position: absolute;
+  right: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #c2b280;
+  border: none;
+  background-color: transparent;
+}
+
+.add-post-modal-header > button:hover {
+  cursor: pointer;
+  color: #5c4033;
+}
+
+/* Post 모달 파일 */
+.add-post-modal-file {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 550px;
+  height: 570px;
+}
+
+.add-post-modal-file > img {
+  width: 70px;
+  margin-bottom: 10px;
+}
+
+.add-post-modal-file > span {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.add-post-modal-file > label {
+  font-size: 14px;
+  color: #fff;
+  padding: 8px 15px;
+  background-color: #c2b280;
+  border-radius: 5px;
+  transition: background-color transform 0.1s ease-out;
+}
+
+.add-post-modal-file > label:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: #af9d65;
+}
+
+.add-post-modal-file > input {
+  display: none;
+}
+
+/* Post 모달 컨텐츠 */
+.add-post-modal-content {
+  display: flex;
+}
+
+.add-post-modal-image {
+  height: 500px;
+}
+
+.add-post-modal-textarea {
+  border-radius: none;
+  outline: none;
+  padding: 20px;
+  width: 300px;
+}
+
+/* Post 모달 공통 */
+.add-post-modal .add-post-modal-content {
+  display: none;
+}
+
+.add-post-modal .add-post-modal-header > button {
+  display: none;
+}
+
+.add-post-modal-share .add-post-modal-file {
+  display: none;
+}
+
+/* 컨테이너 */
 .container {
   padding-left: 300px;
   display: flex;
@@ -79,6 +220,12 @@ ol, ul {
   width: 1000px;
 }
 
+/* 메인 */
+main {
+  padding: 30px 0;
+}
+
+/* 프로필 */
 .profile-section {
   display: flex;
   padding: 40px 0;
@@ -103,12 +250,14 @@ ol, ul {
   margin-bottom: 20px;
 }
 
+/* 프로필 이름 */
 #profile-name {
   font-size: 20px;
   line-height: 20px;
   margin-right: 20px;
 }
 
+/* 프로필 버튼 */
 .profile-button {
   margin-right: 7px;
   padding: 8px 15px;
@@ -120,6 +269,12 @@ ol, ul {
   color: #fff;
 }
 
+.profile-button:hover {
+  cursor: pointer;
+  background-color: #af9d65;
+}
+
+/* 프로필 설정 */
 .profile-setting-button {
   border: none;
   border-radius: 7px;
@@ -130,12 +285,165 @@ ol, ul {
   height: 30px;
 }
 
+.profile-setting-button:hover {
+  cursor: pointer;
+}
+
+/* 프로필 편집 모달 */
+.profile-edit-modal {
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.profile-edit-modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.profile-edit-modal > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+/* 프로필 편집 모달 헤더 */
+.profile-edit-modal-header {
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  padding: 10px 0;
+  border-bottom: 1px solid #7e7e7e;
+  position: relative;
+}
+
+.profile-edit-modal-header > button {
+  position: absolute;
+  right: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #c2b280;
+  border: none;
+  background-color: transparent;
+}
+
+.profile-edit-modal-header > button:hover {
+  cursor: pointer;
+  color: #5c4033;
+}
+
+.profile-edit-modal-content {
+  width: 300px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-image-label {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.profile-image-label:hover {
+  cursor: pointer;
+}
+
+.profile-image-label > img {
+  width: 100px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+.profile-edit-image-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.profile-edit-image-hover > img {
+  width: 45px;
+}
+
+.profile-image-label:hover .profile-edit-image-hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-edit-modal-content > input {
+  display: none;
+}
+
+.profile-edit-modal-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.profile-edit-modal-input > label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.profile-edit-modal-input > input {
+  width: 220px;
+  border: 1px solid #7e7e7e;
+  border-radius: 3px;
+  padding: 5px 7px;
+}
+
+.profile-edit-modal-input > textarea {
+  all: unset;
+  border: 1px solid #7e7e7e;
+  border-radius: 3px;
+  word-break: break-all;
+  font-size: 13px;
+  padding: 5px 7px;
+}
+
+.profile-edit-modal-close-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  z-index: 1000;
+}
+
+.profile-edit-modal-close-button:hover {
+  cursor: pointer;
+  color: #5c4033;
+}
+
+.profile-edit-modal-close-button img {
+  width: 40px;
+  background-color: #000;
+}
+
+/* 게시물, 팔로워, 팔로잉 수 */
 .profile-quantity-lists {
   display: flex;
   gap: 30px;
   margin-bottom: 20px;
 }
 
+.profile-quantity-list > strong {
+  font-weight: 500;
+}
+
+/* 프로필 컨텐츠 */
 .profile-contents {
   display: flex;
   flex-direction: column;
@@ -154,15 +462,14 @@ ol, ul {
 .profile-content-website {
   display: flex;
   align-items: center;
-  gap: 5px;
 }
 
-.profile-content-website img {
+.profile-content-website > img {
   height: 15px;
   margin-right: 2px;
 }
 
-.profile-content-website a {
+.profile-content-website > a {
   font-weight: 500;
   text-decoration: none;
   color: #5c4033;
@@ -171,10 +478,6 @@ ol, ul {
 .profile-content-website a:hover {
   text-decoration: underline;
   cursor: pointer;
-}
-
-.posts-section {
-  display: block;
 }
 
 .posts-nav {
@@ -200,7 +503,8 @@ ol, ul {
 }
 
 .posts-nav-list-selected > button {
-  border-top: 1px solid #000;
+  border-top: 1px solid;
+  color: #000;
 }
 
 .posts-nav-list > button:hover {
@@ -209,6 +513,10 @@ ol, ul {
 
 .posts-nav-list > button > img {
   height: 12px;
+}
+
+.posts-gallary--no-posts {
+  grid-template-columns: 1fr;
 }
 
 .posts-content.no-posts {
@@ -272,4 +580,15 @@ ol, ul {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.footer-last select {
+  border: none;
+  background-color: transparent;
+}
+
+.footer-last .copyright {
+  font-size: 12px;
+  text-decoration: none;
+  color: #7e7e7e;
 }
