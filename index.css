@@ -661,14 +661,15 @@ main {
   padding: 8px 15px;
   border: none;
   border-radius: 7px;
-  background-color: rgb(239, 239, 239);
+  background-color: #c2b280;
   font-size: 14px;
   font-weight: 600;
+  color: #fff;
 }
 
 .post-likes-comments-update-buttons > button:hover {
   cursor: pointer;
-  background-color: #dbdbdb;
+  background-color: #af9d65;
 }
 
 .post-option-buttons {

@@ -176,8 +176,7 @@ function selectPost() {
 
   const openPostModal = allPostModal.find(({ open }) => open);
 
-  return console.log(openPostModal);
-  // return openPostModal && openPostModal.parentNode.id;
+  return openPostModal && openPostModal.parentNode.id;
 }
 
 function postUI() {
@@ -213,7 +212,7 @@ function postUI() {
         </div>
         <img src="${cur.image}" alt="post-${cur.id}" />
         <dialog class="post-modal modal post-modal-view">
-          <form action="" method="dialog">
+          <form method="dialog">
             <img class="post-image" src="${cur.image}" alt="post-${cur.id}" />
             <article class="post-modal-article">${cur.text}</article>
             <div class="post-likes-comments-update">
@@ -256,8 +255,11 @@ function postUI() {
       postModal.showModal();
     }
 
-    post.addEventListener("click", () => {
-      postModal.showModal();
+    post.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (!postModal.open) {
+        postModal.showModal();
+      }
     });
 
     postModal.querySelector(".modal-close-button").addEventListener("click", () => {
