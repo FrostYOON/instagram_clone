@@ -67,15 +67,19 @@ window.addEventListener("load", () => {
 
 // 기본 이벤트 리스너 등록
 function defaultEvent() {
+  addPostModalButton.addEventListener("click", () => {
+    addPostModal.showModal();
+  });
+
+  addPostModalFile.addEventListener("change", (e) => {
+    updatePostImage(e);
+  });
+
   profileEditButton.addEventListener("click", () => {
     profileEditModal.showModal();
   });
 
   profileEditSaveButton.addEventListener("click", profileEditSave);
-
-  addPostModalButton.addEventListener("click", () => {
-    addPostModal.showModal();
-  });
 
   CloseButton.addEventListener("click", (e) => {
     if (e.target === profileEditModal) {
@@ -97,6 +101,12 @@ function defaultEvent() {
   profileEditModal.addEventListener("click", (event) => {
     dialogOut(event);
   });
+
+  addPostModal.addEventListener("click", (event) => {
+    dialogOut(event);
+  });
+
+
 }
 
 // 프로필 UI 업데이트
@@ -181,90 +191,91 @@ function postUI() {
                                 <h3>게시물 없음</h3>
                               </div>`;
     return;
-  } else {
-    postsGallary.classList.remove("posts-gallary-empty");
-    const postsGallaryItem = posts.reduce((pre, cur) => {
-      return (pre +
-        `<div class = "post" id="${cur.id}">
-          <div class="post-likes-comments">
-            <div class="post-likes-comments-icon">
-              <img src="./assets/heart_icon.svg" alt="heart_icon" />
-              <span>${cur.likes}</span>
-            </div>
-            <div class="post-likes-comments-icon">
-              <img src="./assets/comment_icon.svg" alt="comment_icon" />
-              <span>${cur.comments}</span>
-            </div>
-          </div>
-          <img src="${cur.image}" alt="post-${cur.id}" />
-          <dialog class="post-modal modal post-modal-view">
-            <form action="" method="dialog">
-              <div class="post-modal-header">
-                <img class="post-image" src="${cur.image}" alt="post-${cur.id}" />
-                <article class="post-text">${cur.text}</article>
-                <div class="post-likes-comments-update">
-                  <textarea class="post-text-update" placeholder="수정할 내용을 입력하세요.">${cur.text}</textarea>
-                  <button class="post-update-button">수정</button>
-                  <button class="post-cancel-button">취소</button>
-                </div>
-              </div>
-
-              <div class="post-option-buttons">
-                <button class="post-edit-button post-option-button">
-                  <img src="./assets/edit_icon.svg" alt="Edit_icon" />
-                </button>
-                <button class="post-delete-button post-option-button">
-                  <img src="./assets/delete_icon.svg" alt="Delete_icon" />
-                </button>
-              </div>
-
-              <button class="modal-close-button">
-                <img src="./assets/close_icon.svg" alt="Close_icon" />
-              </button>
-            </form>
-          </dialog>
-        </div>`
-      );
-    }, "");
-
-    postsGallary.innerHTML = postsGallaryItem;
-
-    posts.forEach((id, text) => {
-      const post = document.querySelector(`post-${id}`);
-
-      if (!post) return;
-
-      const postModal = post.querySelector(".post-modal");
-
-      if (openedPostId === `post-${id}`) {
-        postModal.showModal();
-      }
-
-      post.addEventListener("click", () => {
-        postModal.showModal();
-      });
-
-      postModal.querySelector(".modal-close-button").addEventListener("click", () => {
-        postModalView(postModal, text);
-      });
-
-      post.querySelector(".post-edit-button").addEventListener("click", (e) => {
-        e.preventDefault();
-        postModalUpdate(postModal);
-      });
-
-      post.querySelector(".post-update-button").addEventListener("click", (e) => {
-        e.preventDefault();
-
-        updatePost(id, postModal.querySelector(".post-text-update").value);
-      });
-
-      post.querySelector(".post-cancel-button").addEventListener("click", (e) => {
-        e.preventDefault();
-        postModalView(postModal, text);
-      });
-    })
   }
+  
+  postsGallary.classList.remove("posts-gallary-empty");
+  const postsGallaryItem = posts.reduce((pre, cur) => {
+    return (pre +
+      `<div class = "post" id="${cur.id}">
+        <div class="post-likes-comments">
+          <div class="post-likes-comments-icon">
+            <img src="./assets/heart_icon.svg" alt="heart_icon" />
+            <span>${cur.likes}</span>
+          </div>
+          <div class="post-likes-comments-icon">
+            <img src="./assets/comment_icon.svg" alt="comment_icon" />
+            <span>${cur.comments}</span>
+          </div>
+        </div>
+        <img src="${cur.image}" alt="post-${cur.id}" />
+        <dialog class="post-modal modal post-modal-view">
+          <form action="" method="dialog">
+            <div class="post-modal-header">
+              <img class="post-image" src="${cur.image}" alt="post-${cur.id}" />
+              <article class="post-text">${cur.text}</article>
+              <div class="post-likes-comments-update">
+                <textarea class="post-text-update" placeholder="수정할 내용을 입력하세요.">${cur.text}</textarea>
+                <button class="post-update-button">수정</button>
+                <button class="post-cancel-button">취소</button>
+              </div>
+            </div>
+
+            <div class="post-option-buttons">
+              <button class="post-edit-button post-option-button">
+                <img src="./assets/edit_icon.svg" alt="Edit_icon" />
+              </button>
+              <button class="post-delete-button post-option-button">
+                <img src="./assets/delete_icon.svg" alt="Delete_icon" />
+              </button>
+            </div>
+
+            <button class="modal-close-button">
+              <img src="./assets/close_icon.svg" alt="Close_icon" />
+            </button>
+          </form>
+        </dialog>
+      </div>`
+    );
+  }, "");
+
+  postsGallary.innerHTML = postsGallaryItem;
+
+  posts.forEach((id, text) => {
+    const post = document.querySelector(`post-${id}`);
+
+    if (!post) return;
+
+    const postModal = post.querySelector(".post-modal");
+
+    if (openedPostId === `post-${id}`) {
+      postModal.showModal();
+    }
+
+    post.addEventListener("click", () => {
+      postModal.showModal();
+    });
+
+    postModal.querySelector(".modal-close-button").addEventListener("click", () => {
+      postModalView(postModal, text);
+    });
+
+    post.querySelector(".post-edit-button").addEventListener("click", (e) => {
+      e.preventDefault();
+      postModalUpdate(postModal);
+    });
+
+    post.querySelector(".post-update-button").addEventListener("click", (e) => {
+      e.preventDefault();
+
+      updatePost(id, postModal.querySelector(".post-text-update").value);
+    });
+
+    post.querySelector(".post-cancel-button").addEventListener("click", (e) => {
+      e.preventDefault();
+      postModalView(postModal, text);
+    });
+  })
+  
 }
 
 function postModalView(postModal, originText) {
@@ -347,5 +358,7 @@ function dialogOut(event) {
     addPostModal.close();
   } else if (event.target === profileEditModal) {
     profileEditModal.close();
+  } else if (event.target === document.querySelector(".post-modal")) {
+    document.querySelector(".post-modal").close();
   }
 }
