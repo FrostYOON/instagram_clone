@@ -175,13 +175,16 @@ function selectPost() {
   if (!allPostModal) return;
 
   const openPostModal = allPostModal.find(({ open }) => open);
-  return openPostModal && openPostModal.parentNode.id;
+
+  return console.log(openPostModal);
+  // return openPostModal && openPostModal.parentNode.id;
 }
 
 function postUI() {
   const openedPostId = selectPost();
   const posts = JSON.parse(localStorage.getItem("posts")) || [];
 
+  // 게시물이 없을 경우
   if (!posts.length) {
     postsGallary.classList.add("posts-gallary-empty");
     postsGallary.innerHTML = `<div class="posts-gallary-item-no-posts">
@@ -192,11 +195,12 @@ function postUI() {
                               </div>`;
     return;
   }
-  
+
+  // 게시물이 있을 경우
   postsGallary.classList.remove("posts-gallary-empty");
   const postsGallaryItem = posts.reduce((pre, cur) => {
     return (pre +
-      `<div class = "post" id="${cur.id}">
+      `<div class="post" id="post-${cur.id}">
         <div class="post-likes-comments">
           <div class="post-likes-comments-icon">
             <img src="./assets/heart_icon.svg" alt="heart_icon" />
@@ -210,11 +214,11 @@ function postUI() {
         <img src="${cur.image}" alt="post-${cur.id}" />
         <dialog class="post-modal modal post-modal-view">
           <form action="" method="dialog">
-            <div class="post-modal-header">
-              <img class="post-image" src="${cur.image}" alt="post-${cur.id}" />
-              <article class="post-text">${cur.text}</article>
-              <div class="post-likes-comments-update">
-                <textarea class="post-text-update" placeholder="수정할 내용을 입력하세요.">${cur.text}</textarea>
+            <img class="post-image" src="${cur.image}" alt="post-${cur.id}" />
+            <article class="post-modal-article">${cur.text}</article>
+            <div class="post-likes-comments-update">
+              <textarea class="post-text-update" placeholder="수정할 내용을 입력하세요.">${cur.text}</textarea>
+              <div class="post-likes-comments-update-buttons">
                 <button class="post-update-button">수정</button>
                 <button class="post-cancel-button">취소</button>
               </div>
@@ -240,8 +244,9 @@ function postUI() {
 
   postsGallary.innerHTML = postsGallaryItem;
 
-  posts.forEach((id, text) => {
-    const post = document.querySelector(`post-${id}`);
+  // 게시물 이벤트 리스너 등록
+  posts.forEach(({ id, text }) => {
+    const post = document.getElementById(`post-${id}`);
 
     if (!post) return;
 
@@ -257,6 +262,12 @@ function postUI() {
 
     postModal.querySelector(".modal-close-button").addEventListener("click", () => {
       postModalView(postModal, text);
+    });
+
+    post.querySelector(".post-delete-button").addEventListener("click", () => {
+      if (confirm("정말로 삭제하시겠습니까?")) {
+        deletePost(id);
+      }
     });
 
     post.querySelector(".post-edit-button").addEventListener("click", (e) => {
@@ -301,6 +312,7 @@ function createPost(image, text) {
 
   posts.push(newPost);
   localStorage.setItem("posts", JSON.stringify(posts));
+  postUI();
 }
 
 function deletePost(id) {
